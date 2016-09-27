@@ -122,7 +122,7 @@
 \newenvironment{Rq}{\noindent Remarque (ï¿½ supprimer)}{\newline}
 
 
-\numberwithin{equation}{section}
+%\numberwithin{equation}{section}
 
 \usepackage{hyperref}
 
@@ -154,27 +154,37 @@ is true, but not for the reasons I mentioned...
 \item
 Exercise: what is wrong with the argument I gave?
 \item
-It is crucial to use the hypothesis that $E_1$ and $E_2$ commute -- \textsl{i.e.} $E_1 E_2 = E_2 E_1$ 
+It is crucial to use the hypothesis that $E_1$ and $E_2$ commute -- \textsl{i.e.} $E_1 E_2 = E_2 E_1$ .
 \item
-Exercise: find an example to prove that if $E_1$ and $E_2$ do not commute, $E_1 + E_2 - E_1 E_2$ need not be a projection.
+Exercise: find an example to prove that if $E_1$ and $E_2$ do not commute, $E := E_1 + E_2 - E_1 E_2$ need not be a projection.
 \end{itemize}
 Let us prove the decomposition \eqref{Eqn:Decomp}: 
 \begin{enumerate}
 \item
 We know that if $E_j$ is the projection on $\Mm_j$ along $\Nn_j$, then $1 - E_j$ is the projection on $\Nn_j$ along $\Mm_j$.
 \item
-Using the commutation relation $E_1 E_2 = E_2 E_1$, we can check that all four endomorphisms $E_1 E_2, E_1 (1-E_2), (1-E_1) E_2$ and $(1-E_1)(1-E_2)$ are projections
+Using the commutation relation $E_1 E_2 = E_2 E_1$, we can check that all four endomorphisms $E_1 E_2, E_1 (1-E_2), (1-E_1) E_2$ and $(1-E_1)(1-E_2)$ are projections.
+\item
+We can check that the conditions of point (iii) of theorem § 42 p. 74 are satisfied for each of these four projections. It follows that they are projections on $(\Mm_1 \cap \Mm_2), (\Mm_1 \cap \Nn_2), (\Nn_1 \cap \Mm_2)$ and $(\Nn_1 \cap \Nn_2)$, respectively.
+\item
+If $E$ and $E'$ are two projections among the four described above, then $E E' = E' E = 0$. It follows that $(\Mm_1 \cap \Mm_2), (\Mm_1 \cap \Nn_2), (\Nn_1 \cap \Mm_2)$ and $(\Nn_1 \cap \Nn_2)$ are pairwise in direct sum. Moreover,
+\[
+1 = E_1 E_2 + E_1 (1-E_2) + (1-E_1) E_2 + (1-E_1)(1-E_2)
+\]
+so we get the decomposition \eqref{Eqn:Decomp} (for more details on iterated direct sums, remember Exercise § 20.5).
 \end{enumerate}
+From there, the computations done during the exercise session apply and we get that $E := E_1 + E_2 - E_1 E_2$ is a projection on $\Mm_1 + \Mm_2$ along $\Nn_1 \cap \Nn_2$.
 
-. Here, we use it to show that $(\Mm_1 + \Mm_2) \oplus (\Nn_1 \cap \Nn_2) = V$, \textsl{via} the theorem of § 42 (p. 74).
+\bigbreak
 
-
-
+An alternative, perhaps simpler, argument goes as follow:
 \begin{itemize}
 \item
-
+$(1 - E_1)$ (resp. $(1- E_2)$) is a projection on $\Nn_1$ along $\Mm_1$ (resp. $\Nn_2$ along $\Mm_2$). 
 \item
-Since $E_1$ and $E_2$ commute, it is 
+Since $E_1$ and $E_2$ commute, $(1 - E_1)(1-E_2) = (1 - E_2)(1-E_1)$ and thus this is a projection (theorem § 42 (iii) p. 74) on $\Nn_1 \cap \Nn_2$ along $\Mm_1 + \Mm_2$.
+\item
+If we expand $(1 - E_1)(1-E_2) = 1 - E_1 - E_2 + E_1 E_1 = 1 - E$, so $E$ is actually the projection on $\Mm_1 + \Mm_2$ along $\Nn_1 \cap \Nn_2$.
 \end{itemize}
 
 \end{document}
