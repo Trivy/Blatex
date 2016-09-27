@@ -1,0 +1,180 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = latin1
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+%\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc} % set input encoding (not needed with XeLaTeX)
+\textwidth=125 mm
+\textheight=195 mm
+\frenchspacing
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\usepackage{array} % for better arrays (eg matrices) in maths
+
+%\usepackage{xargs}
+\usepackage{authblk}
+\usepackage{bbm}
+\usepackage[all]{xy}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage{enumerate} 
+
+%%% !!!uncomment to enumerate the statements continuously inside the sections (e.g. Theorem 3.1, Remark 3.2, Lemma 3.3 etc.)!!!
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Proposition}[Theorem]{Proposition}
+ { \theoremstyle{Definition}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Note}[Theorem]{Note}
+\newtheorem{Example}[Theorem]{Example}
+\newtheorem{Remark}[Theorem]{Remark} }
+
+\newcommand{\Aa}{\mathcal{A}}
+
+\newcommand{\actionG}{\underline{\delta}}
+\newcommand{\brep}{\alpha}
+\newcommand{\C}{\mathbbm{C}}
+\newcommand{\CAlg}{\mathcal{O}}
+\newcommand{\CatInd}[1][\brep]{\mathcal{T}_{#1}}
+
+\newcommand{\ChainGp}{\mathfrak{C}}
+
+\newcommand{\Complex}[1][]{(d_{#1}, \Hh_k)}
+
+\newcommand{\Core}{C}
+
+\newcommand{\CQG}{\mathbbm{G}}
+
+\newcommand{\Dd}{\mathscr{D}}
+
+
+\newcommand{\E}{\mathbbm{E}}
+
+\newcommand{\Falg}[1][\alpha]{{\mathcal{O}^{#1}}}
+\newcommand{\Hh}{\mathscr{H}}
+\newcommand{\HilbK}{\mathscr{K}}
+
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\InvJ}{\mathcal{F}}
+
+\newcommand{\Jj}{\mathcal{J}}
+
+
+\newcommand{\LieAlgSU}{\mathfrak{su}}
+
+\newcommand{\LieG}{\mathfrak{g}}
+
+\newcommand{\Mm}{\mathfrak{M}}
+\newcommand{\Nn}{\mathfrak{N}}
+
+\newcommand{\N}{\mathbbm{N}}
+
+\newcommand{\omegat}{\underline{\omega}}
+
+\newcommand{\OpCpct}{\mathcal{K}}
+\newcommand{\OpLin}{\mathcal{L}}
+
+\newcommand{\R}{\mathbbm{R}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\RepV}{\mathbbm{V}}
+
+\newcommand{\RightMult}{\mathcal{R}}
+
+\newcommand{\SymmIdeal}{\mathscr{L}}
+
+\newcommand{\Toep}{\mathcal{T}}
+\newcommand{\TrivRep}{\epsilon}
+\newcommand{\UCTclass}{\mathscr{N}}
+\newcommand{\V}{\mathbbm{V}}
+\newcommand{\vt}{\underline{v}}
+
+\newcommand{\Z}{\mathbbm{Z}}
+
+\DeclareMathOperator{\can}{can}
+\DeclareMathOperator{\coker}{Coker}
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\GNS}{GNS}
+\DeclareMathOperator{\grad}{\mathfrak{gr}}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\ind}{Index}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Tr}{Tr}
+
+% espace fine autour de \colon
+\renewcommand{\colon}{\mathclose{}\mathpunct{}\mathpunct{:}}
+
+\newenvironment{Rq}{\noindent Remarque (ï¿½ supprimer)}{\newline}
+
+
+\numberwithin{equation}{section}
+
+\usepackage{hyperref}
+
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+
+\title{Exercise § 43.5 (b)}
+
+\author{Olivier \textsc{Gabriel}}
+
+\date{} 
+
+\begin{document}
+
+\maketitle
+
+In exercise § 43.5 (b),
+\begin{itemize}
+\item
+the decomposition of the space $V$:
+\begin{equation}
+\label{Eqn:Decomp}
+V = (\Mm_1 \cap \Mm_2) \oplus (\Mm_1 \cap \Nn_2) \oplus (\Nn_1 \cap \Mm_2) \oplus (\Nn_1 \cap \Nn_2)
+\end{equation}
+is true, but not for the reasons I mentioned...
+\item
+Exercise: what is wrong with the argument I gave?
+\item
+It is crucial to use the hypothesis that $E_1$ and $E_2$ commute -- \textsl{i.e.} $E_1 E_2 = E_2 E_1$ 
+\item
+Exercise: find an example to prove that if $E_1$ and $E_2$ do not commute, $E_1 + E_2 - E_1 E_2$ need not be a projection.
+\end{itemize}
+Let us prove the decomposition \eqref{Eqn:Decomp}: 
+\begin{enumerate}
+\item
+We know that if $E_j$ is the projection on $\Mm_j$ along $\Nn_j$, then $1 - E_j$ is the projection on $\Nn_j$ along $\Mm_j$.
+\item
+Using the commutation relation $E_1 E_2 = E_2 E_1$, we can check that all four endomorphisms $E_1 E_2, E_1 (1-E_2), (1-E_1) E_2$ and $(1-E_1)(1-E_2)$ are projections
+\end{enumerate}
+
+. Here, we use it to show that $(\Mm_1 + \Mm_2) \oplus (\Nn_1 \cap \Nn_2) = V$, \textsl{via} the theorem of § 42 (p. 74).
+
+
+
+\begin{itemize}
+\item
+
+\item
+Since $E_1$ and $E_2$ commute, it is 
+\end{itemize}
+
+\end{document}
